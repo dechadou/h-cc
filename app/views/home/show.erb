@@ -1,0 +1,4 @@
+ <h1>Viewing metrics for <%= $metric_name -%></h1>
+ <% $metric.each do |metric_value| %>
+ <li>Value: <%= link_to metric_value.value, action: "edit", metric: metric_value.to_json -%></li>
+ <% end %>

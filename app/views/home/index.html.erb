@@ -1,0 +1,18 @@
+<%
+    $data = Array.new
+    $metric_list.each do |metric|
+        metric["links"].each do |links|
+            if(links["rel"] === 'list_metric_values')
+                $data.push 'name' => metric["name"], 'href' => links["href"]
+            end
+        end
+    end
+%>
+<h1>List of metrics </h1>
+<%
+$data.each do |element|
+%>
+    <li><%= link_to element["name"], action: "show", name: element["name"], href: element["href"] -%></li>
+<%
+end
+%>

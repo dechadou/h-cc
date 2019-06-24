@@ -1,0 +1,10 @@
+<h1>Edit Metric <%= $metric["href"] -%></h1>
+<%= form_tag("/home/update", method: "post") do %>
+  <%= label_tag($metric["value"], "Value:") %>
+  <%= text_field_tag("value", $metric["value"]) %>
+  <%= hidden_field_tag('parent_metric_href', $metric["metric"]["href"]) %>
+  <%= hidden_field_tag("metric_href", $metric["href"]) %>
+  <%= hidden_field_tag("metric_owner_kind", $metric["owner"]["kind"]) %>
+  <%= hidden_field_tag("metric_owner_href", $metric["owner"]["href"]) %>
+  <%= submit_tag("Update") %>
+<% end %>
